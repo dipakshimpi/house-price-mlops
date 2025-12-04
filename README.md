@@ -10,24 +10,22 @@ It includes:
 ✔️ Automated CI/CD pipeline with GitHub Actions
 ✔️ Docker image publishing to DockerHub
 
-🔥 Project Architecture
+```
 house-price-mlops/
-│
 ├── app/                 # FastAPI application
 │   ├── main.py
 │   ├── utils.py
 │   └── requirements.txt
-│
 ├── model/               # Model training script
 │   └── train_model.py
-│
 ├── data/                # Training dataset
 │   └── house_price.csv
-│
 ├── Dockerfile           # Docker build instructions
-├── .github/workflows    # GitHub Actions CI/CD pipeline
+├── .github/workflows    # CI/CD pipeline
 │   └── ci-cd.yml
 └── README.md            # Project documentation
+```
+
 
 🚀 Features
 
