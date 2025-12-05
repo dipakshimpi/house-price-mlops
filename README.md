@@ -1,17 +1,18 @@
-🏡 House Price Prediction — MLOps Pipeline Project
+.
 
-This project showcases a practical MLOps workflow to predict house prices using a Machine Learning model. The system is fully automated using FastAPI, Docker, and GitHub Actions, enabling continuous integration and delivery.
+🏡 House Price Prediction — End-to-End MLOps Project
 
+This project demonstrates a complete MLOps workflow for predicting house prices using a Machine Learning model trained on features like bedrooms, bathrooms, and area. The system is automated using FastAPI, Docker, and GitHub Actions, with the trained model served through a production-ready API.
 
-🚀 What This Project Offers
+🚀 Highlights
+Feature	Description
 
-| Capability          | Description                             |
-| ------------------- | --------------------------------------- |
-| 🧠 ML Model         | Trained using **scikit-learn**          |
-| ⚡ REST API          | Served using **FastAPI**                |
-| 🐳 Containerization | Complete deployment with **Docker**     |
-| 🔁 CI/CD Pipeline   | Automated builds via **GitHub Actions** |
-| 📦 Image Registry   | Docker image pushed to **DockerHub**    |
+🧠 ML Model	Trained using scikit-learn
+⚡ API	Developed with FastAPI
+🐳 Dockerized	Fully containerized backend
+🔁 CI/CD	Automated pipeline via GitHub Actions
+📦 Registry	Docker images pushed to DockerHub
+
 
 📁 Project Structure
 house-price-mlops/
@@ -29,100 +30,100 @@ house-price-mlops/
 ├── data/                      # Training dataset
 │   └── house_price.csv
 │
-├── Dockerfile                 # Docker build configuration for backend
-├── docker-compose.yml         # Multi-container setup (API + UI)
+├── Dockerfile                 # Docker build config for backend
+├── docker-compose.yml         # Multi-container setup (UI + API)
 │
 ├── .github/
 │   └── workflows/
-│       └── ci-cd.yml          # Automated CI/CD pipeline
+│       └── ci-cd.yml          # CI/CD automation pipeline
 │
 └── README.md                  # Project documentation
 
 🧠 Model Training
 
-A regression model is trained using train_model.py, and the trained model is stored as model.pkl.
+Run the model training script:
 
 python model/train_model.py
 
-The FastAPI backend loads this model at runtime for serving predictions.
 
+This generates model.pkl, which is automatically loaded by FastAPI during runtime.
 
-⚡ Run the API Locally
-1️⃣ Install Required Packages
+⚡ Run API Locally
+Install dependencies
 pip install -r app/requirements.txt
 
-2️⃣ Launch API Server
+Start FastAPI server
 uvicorn app.main:app --reload
 
 
-📌 Interactive API docs available at:
+Swagger UI will be available at:
+
 👉 http://localhost:8000/docs
 
-
-🐳 Docker Deployment
-🔨 Build Docker Image
+🐳 Docker Setup
+Build Docker Image
 docker build -t dipak45/house-price-api .
 
-▶️ Run the Container
+Run Docker Container
 docker run -p 8000:8000 dipak45/house-price-api
 
 
-Once running, the API is accessible at:
+Access the API at:
 
 👉 http://localhost:8000
 
+🌐 API Usage
+Prediction Request
+POST http://localhost:8000/predict?bedrooms=3&bathrooms=2&area=1200
 
-🌐 Predict Using API
-🔮 Make a Prediction Request
-http://localhost:8000/predict?bedrooms=3&bathrooms=2&area=1200
-
-
-Sample Response
-
+Example Response
 {
   "predicted_price": 245000.0
 }
 
-🔁 CI/CD Pipeline
+🔁 CI/CD Pipeline (GitHub Actions)
 
-Every push to the main branch triggers automation:
+The CI/CD workflow performs:
 
-✔️ Checkout source code
-✔️ Build Docker Image
+✔️ Checkout repository
+✔️ Build Docker image
 ✔️ Authenticate to DockerHub
 ✔️ Push image to registry
 
 
-CI/CD file: .github/workflows/ci-cd.yml
+Pipeline file:
+
+.github/workflows/ci-cd.yml
 
 🐳 DockerHub Image
 
-Pull the latest build:
+Pull the latest image:
 
 docker pull dipak45/house-price-api
 
 
 🔗 https://hub.docker.com/r/dipak45/house-price-api
 
-📁 Repository Link
+📦 GitHub Repository
 
 🔗 https://github.com/dipakshimpi/house-price-mlops
 
-🚧 Roadmap / Next Steps
+🚧 Future Enhancements
 
-🌍 Deploy API to cloud (AWS / GCP / Render)
+🌍 Deploy to cloud platforms (AWS / GCP / Render)
 
-📊 Add monitoring (Prometheus / Grafana)
+📊 Add monitoring and logging stack
 
-🧪 Integrate automated testing
+🧪 Integrate unit and API tests
 
-🔁 Enable continuous model retraining
+🔁 Automated retraining pipeline
 
-🙋 Author
+👤 Author
 
 Dipak Shimpi
-MLOps & Machine Learning Explorer
+MLOps & Machine Learning Enthusiast
 
-🌟 Want to Contribute?
+⭐ Contributing
 
-Feel free to fork the project, create enhancements, and submit PRs. Contributions are always welcome!
+Contributions are welcome!
+Fork the repo, explore improvements, and submit a pull request 🚀
