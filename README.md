@@ -1,52 +1,59 @@
-🏠 House Price Prediction MLOps Project
+🏠 House Price Prediction — End-to-End MLOps Project
 
-This project demonstrates a complete MLOps workflow using a Machine Learning model to predict house prices based on basic features like number of bedrooms, bathrooms, and area.
+This project demonstrates a complete MLOps workflow to predict house prices using a Machine Learning model trained on features like bedrooms, bathrooms, and area.
 
 It includes:
 
-✔️ Model training
-✔️ FastAPI-based web API
-✔️ Docker containerization
-✔️ Automated CI/CD pipeline with GitHub Actions
-✔️ Docker image publishing to DockerHub
+✔️ Model Training
+✔️ FastAPI Web API
+✔️ Docker Containerization
+✔️ CI/CD Pipeline with GitHub Actions
+✔️ Docker Image Publishing to DockerHub
 
-```
+📁 Project Structure
 house-price-mlops/
-├── app/                 # FastAPI application
+├── app/                     # FastAPI application
 │   ├── main.py
 │   ├── utils.py
 │   └── requirements.txt
-├── model/               # Model training script
+├── frontend/                # Streamlit UI (optional)
+│   └── app.py
+├── model/                   # Model training script
 │   └── train_model.py
-├── data/                # Training dataset
+├── data/                    # Training dataset
 │   └── house_price.csv
-├── Dockerfile           # Docker build instructions
-├── .github/workflows    # CI/CD pipeline
+├── Dockerfile               # Docker build file for backend
+├── docker-compose.yml       # Multi-container setup (frontend + backend)
+├── .github/workflows        # CI/CD pipeline
 │   └── ci-cd.yml
-└── README.md            # Project documentation
-```
-
+└── README.md
 
 🚀 Features
+Feature	Description
+🧠 Model	Trained using scikit-learn
+⚡ API	Built using FastAPI
+🐳 Containers	Fully Dockerized
+🔁 CI/CD	Implemented using GitHub Actions
+📦 Registry	Auto-push image to DockerHub
+🐍 Train the Model
+python model/train_model.py
 
-🧠 Trained ML model using scikit-learn
 
-⚡ REST API built with FastAPI
+This generates model.pkl which is used by FastAPI for predictions.
 
-🐳 Fully Dockerized application
+⚡ Run API Locally
+1️⃣ Install dependencies
+pip install -r app/requirements.txt
 
-🔁 CI/CD using GitHub Actions
+2️⃣ Start FastAPI server
+uvicorn app.main:app --reload
 
-📦 Automatic Docker image push to DockerHub
 
-🛠️ Tech Stack
-Layer	Technology
-Model	Python, scikit-learn
-API	FastAPI
-Packaging	Docker
-CI/CD	GitHub Actions
-Registry	DockerHub
-📦 Docker Setup
+Open API docs:
+
+👉 http://localhost:8000/docs
+
+🐳 Docker Setup
 🏗️ Build Docker Image
 docker build -t dipak45/house-price-api .
 
@@ -54,66 +61,54 @@ docker build -t dipak45/house-price-api .
 docker run -p 8000:8000 dipak45/house-price-api
 
 🌐 API Usage
-
-Once the container is running, open:
-
-http://localhost:8000
-
 🔮 Predict Example
 
 POST request:
 
 http://localhost:8000/predict?bedrooms=3&bathrooms=2&area=1200
 
-
 Response:
-
 {
   "predicted_price": 245000.0
 }
 
-🔁 CI/CD Pipeline
+🔁 CI/CD Pipeline (GitHub Actions)
 
 Every push to the main branch triggers:
 
-Checkout repository
+✔️ Checkout repository
+✔️ Build Docker image
+✔️ Login to DockerHub (using secrets)
+✔️ Push image to DockerHub
 
-Build Docker image
 
-Login to DockerHub (secrets-based auth)
-
-Push image to DockerHub
+CI/CD file: .github/workflows/ci-cd.yml
 
 🐳 DockerHub Image
 
-You can pull the latest image from:
+Pull latest image:
 
-https://hub.docker.com/r/dipak45/house-price-api
+docker pull dipak45/house-price-api
+
+
+DockerHub URL👇
+🔗 https://hub.docker.com/r/dipak45/house-price-api
 
 📂 GitHub Repository
-https://github.com/dipakshimpi/house-price-mlops
+
+🔗 https://github.com/dipakshimpi/house-price-mlops
 
 🚧 Future Enhancements
-
-🌍 Cloud deployment (Render / AWS / GCP)
-
-🎯 Monitoring and logging
-
-🧪 Unit tests integration
-
-📈 Model retraining pipeline
-
+Feature	Status
+🌍 Cloud deployment (Render/AWS/GCP)	🔜
+🎯 Monitoring & Logging	🔜
+🧪 Unit Tests	🔜
+♻️ Model Retraining Pipeline	🔜
 🙌 Author
 
-Dipak Shimpi
-MLOps & ML Enthusiast
+👤 Dipak Shimpi
+ML & MLOps Enthusiast 🚀
 
 ⭐ Contributing
 
-Pull requests are welcome!
-Feel free to fork the repo and explore improvements.
-
-
-
-
-
+Pull requests are welcome! Feel free to fork, explore, and improve this project.
