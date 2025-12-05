@@ -13,26 +13,30 @@ This project showcases a practical MLOps workflow to predict house prices using 
 | 🔁 CI/CD Pipeline   | Automated builds via **GitHub Actions** |
 | 📦 Image Registry   | Docker image pushed to **DockerHub**    |
 
-
-🗂️ Directory Overview
-
+📁 Project Structure
 house-price-mlops/
-├── app/                     # FastAPI backend service
-│   ├── main.py              # API endpoints
-│   ├── utils.py             # Helper functions
-│   └── requirements.txt     # Backend dependencies
-├── frontend/                # Optional Streamlit UI
+├── app/                       # FastAPI backend service
+│   ├── main.py                # API endpoints
+│   ├── utils.py               # Helper utilities
+│   └── requirements.txt       # Backend dependencies
+│
+├── frontend/                  # Streamlit UI (optional)
 │   └── app.py
-├── model/                   # Model training workflow
+│
+├── model/                     # ML model training workflow
 │   └── train_model.py
-├── data/                    # Training dataset
+│
+├── data/                      # Training dataset
 │   └── house_price.csv
-├── Dockerfile               # Backend container image
-├── docker-compose.yml       # Multi-service orchestration
-├── .github/workflows/
-│   └── ci-cd.yml            # CI/CD pipeline definition
-└── README.md
-
+│
+├── Dockerfile                 # Docker build configuration for backend
+├── docker-compose.yml         # Multi-container setup (API + UI)
+│
+├── .github/
+│   └── workflows/
+│       └── ci-cd.yml          # Automated CI/CD pipeline
+│
+└── README.md                  # Project documentation
 
 🧠 Model Training
 
@@ -87,6 +91,7 @@ Every push to the main branch triggers automation:
 ✔️ Build Docker Image
 ✔️ Authenticate to DockerHub
 ✔️ Push image to registry
+
 
 CI/CD file: .github/workflows/ci-cd.yml
 
