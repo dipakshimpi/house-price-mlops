@@ -74,39 +74,46 @@ house-price-mlops/
 └── README.md                   # Project documentation
 
 
+
+
 🧠 Model Training
 To retrain the model and update the model.pkl file, execute:
-
-Bash
-
 python model/train_model.py
+
 ⚡ Local Execution
-<ol> <li><b>Install Dependencies:</b> <pre><code>pip install -r app/requirements.txt</code></pre> </li> <li><b>Start FastAPI Server:</b> <pre><code>uvicorn app.main:app --reload</code></pre> </li> <li><b>Explore Swagger UI:</b> <br />👉 <a href="http://localhost:8000/docs">http://localhost:8000/docs</a> </li> </ol>
+<ol> <li><b>Install Dependencies:</b>
+<pre><code>pip install -r app/requirements.txt</code></pre> </li>
+<li><b>Start FastAPI Server:</b> <pre><code>uvicorn app.main:app --reload</code></pre> </li>
+ <li><b>Explore Swagger UI:</b> <br />👉
+ <a href="http://localhost:8000/docs">http://localhost:8000/docs</a> </li> </ol>
 
 🐳 Docker Workflow
 Build and run the container locally:
 
-Bash
 
 # Build
+
 docker build -t dipak45/house-price-api .
 
 # Run
 docker run -p 8000:8000 dipak45/house-price-api
 🌐 API Usage
+
 <b>Request:</b> POST http://localhost:8000/predict?bedrooms=3&bathrooms=2&area=1200
 
 <b>Response:</b>
 
 JSON
-
 {
   "predicted_price": 245000.0
 }
+
 🔁 CI/CD Pipeline
 The GitHub Actions workflow automates the following steps on every push to the main branch:
 
-<ul> <li>✔️ Checkout Repository</li> <li>✔️ Build Docker Image</li> <li>✔️ Authenticate to DockerHub</li> <li>✔️ Push Image to Registry</li> </ul>
+<ul> <li>✔️ Checkout Repository</li>
+ <li>✔️ Build Docker Image</li> <li>✔️ Authenticate to DockerHub</li>
+ <li>✔️ Push Image to Registry</li> </ul>
 
 🚧 Future Enhancements
 [ ] 🌍 Cloud Deployment: Migrate to AWS (EC2/ECS) or GCP.
@@ -123,3 +130,4 @@ The GitHub Actions workflow automates the following steps on every push to the m
 <p> <a href="https://github.com/dipakshimpi/house-price-mlops"> <img src="https://www.google.com/search?q=https://img.shields.io/badge/GitHub-100000%3Fstyle%3Dfor-the-badge%26logo%3Dgithub%26logoColor%3Dwhite" alt="GitHub"> </a> <a href="https://hub.docker.com/r/dipak45/house-price-api"> <img src="https://www.google.com/search?q=https://img.shields.io/badge/DockerHub-2496ED%3Fstyle%3Dfor-the-badge%26logo%3Ddocker%26logoColor%3Dwhite" alt="DockerHub"> </a> </p>
 
 <div align="center"> <sub>⭐ If you find this project useful, please consider giving it a star!</sub> </div>
+
