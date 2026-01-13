@@ -77,57 +77,66 @@ house-price-mlops/
 
 
 🧠 Model Training
-To retrain the model and update the model.pkl file, execute:
-python model/train_model.py
+To retrain the model and update the model.pkl file, execute the training script:
 
+Bash
+
+python model/train_model.py
 ⚡ Local Execution
-<ol> <li><b>Install Dependencies:</b>
-<pre><code>pip install -r app/requirements.txt</code></pre> </li>
-<li><b>Start FastAPI Server:</b> <pre><code>uvicorn app.main:app --reload</code></pre> </li>
- <li><b>Explore Swagger UI:</b> <br />👉
- <a href="http://localhost:8000/docs">http://localhost:8000/docs</a> </li> </ol>
+Install Dependencies:
+
+Bash
+
+pip install -r app/requirements.txt
+Start FastAPI Server:
+
+Bash
+
+uvicorn app.main:app --reload
+Explore Swagger UI: Access the interactive API documentation at: http://localhost:8000/docs
 
 🐳 Docker Workflow
-Build and run the container locally:
+You can build and run the application inside a container to ensure environment consistency.
 
+Build the image:
 
-# Build
+Bash
 
 docker build -t dipak45/house-price-api .
+Run the container:
 
-# Run
+Bash
+
 docker run -p 8000:8000 dipak45/house-price-api
 🌐 API Usage
+Request: POST http://localhost:8000/predict?bedrooms=3&bathrooms=2&area=1200
 
-<b>Request:</b> POST http://localhost:8000/predict?bedrooms=3&bathrooms=2&area=1200
-
-<b>Response:</b>
+Response:
 
 JSON
+
 {
   "predicted_price": 245000.0
 }
-
 🔁 CI/CD Pipeline
 The GitHub Actions workflow automates the following steps on every push to the main branch:
 
-<ul> <li>✔️ Checkout Repository</li>
- <li>✔️ Build Docker Image</li> <li>✔️ Authenticate to DockerHub</li>
- <li>✔️ Push Image to Registry</li> </ul>
+✔️ Checkout Repository: Pulls the latest code.
+
+✔️ Build Docker Image: Packages the application.
+
+✔️ Authenticate to DockerHub: Securely logs into the registry.
+
+✔️ Push Image to Registry: Updates the image on DockerHub.
 
 🚧 Future Enhancements
 [ ] 🌍 Cloud Deployment: Migrate to AWS (EC2/ECS) or GCP.
 
-[ ] 📊 Monitoring: Integrate Prometheus and Grafana for model drift.
+[ ] 📊 Monitoring: Integrate Prometheus and Grafana for model drift tracking.
 
 [ ] 🧪 Testing: Add PyTest for unit and integration testing.
 
 [ ] 🔁 Retraining: Implement automated retraining triggers.
 
 👤 Author
-<p> <b>Dipak Shimpi</b><br /> <i>MLOps & Machine Learning Enthusiast</i> </p>
-
-<p> <a href="https://github.com/dipakshimpi/house-price-mlops"> <img src="https://www.google.com/search?q=https://img.shields.io/badge/GitHub-100000%3Fstyle%3Dfor-the-badge%26logo%3Dgithub%26logoColor%3Dwhite" alt="GitHub"> </a> <a href="https://hub.docker.com/r/dipak45/house-price-api"> <img src="https://www.google.com/search?q=https://img.shields.io/badge/DockerHub-2496ED%3Fstyle%3Dfor-the-badge%26logo%3Ddocker%26logoColor%3Dwhite" alt="DockerHub"> </a> </p>
-
-<div align="center"> <sub>⭐ If you find this project useful, please consider giving it a star!</sub> </div>
-
+Dipak Shimpi MLOps & Machine Learning Enthusiast
