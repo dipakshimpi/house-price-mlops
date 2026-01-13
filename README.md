@@ -1,129 +1,125 @@
-.
+  <div align="center">
+  <img src="https://cdn-icons-png.flaticon.com/512/6122/6122753.png" width="100" height="100" alt="MLOps Logo">
+  <h1>🏡 House Price Prediction</h1>
+  <p><b>End-to-End MLOps Project</b></p>
 
-🏡 House Price Prediction — End-to-End MLOps Project
+  <p>
+    <img src="https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi" alt="FastAPI">
+    <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
+    <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white" alt="CI/CD">
+    <img src="https://img.shields.io/badge/Scikit_Learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white" alt="sklearn">
+  </p>
+</div>
 
-This project demonstrates a complete MLOps workflow for predicting house prices using a Machine Learning model trained on features like bedrooms, bathrooms, and area. The system is automated using FastAPI, Docker, and GitHub Actions, with the trained model served through a production-ready API.
+---
 
-🚀 Highlights
-Feature	Description
-
-🧠 ML Model	Trained using scikit-learn
-⚡ API	Developed with FastAPI
-🐳 Dockerized	Fully containerized backend
-🔁 CI/CD	Automated pipeline via GitHub Actions
-📦 Registry	Docker images pushed to DockerHub
+### 📝 Overview
+This project demonstrates a complete **MLOps workflow** for predicting house prices. It covers the entire lifecycle from model training to containerized deployment and automated CI/CD pipelines.
 
 
-📁 Project Structure
+
+---
+
+### 🚀 Highlights
+<table width="100%">
+  <tr>
+    <th width="30%">Feature</th>
+    <th width="70%">Description</th>
+  </tr>
+  <tr>
+    <td><b>🧠 ML Model</b></td>
+    <td>Linear Regression trained using <code>scikit-learn</code>.</td>
+  </tr>
+  <tr>
+    <td><b>⚡ API</b></td>
+    <td>High-performance backend developed with <code>FastAPI</code>.</td>
+  </tr>
+  <tr>
+    <td><b>🐳 Dockerized</b></td>
+    <td>Fully containerized environment for seamless deployment.</td>
+  </tr>
+  <tr>
+    <td><b>🔁 CI/CD</b></td>
+    <td>Automated Build-Test-Push pipeline via <code>GitHub Actions</code>.</td>
+  </tr>
+  <tr>
+    <td><b>📦 Registry</b></td>
+    <td>Automated image versioning pushed to <code>DockerHub</code>.</td>
+  </tr>
+</table>
+
+---
+
+### 📁 Project Structure
+<details>
+<summary><b>▶ Click to expand structure</b></summary>
+
+```text
 house-price-mlops/
-├── app/                       # FastAPI backend service
-│   ├── main.py                # API endpoints
-│   ├── utils.py               # Helper utilities
-│   └── requirements.txt       # Backend dependencies
-│
-├── frontend/                  # Streamlit UI (optional)
+├── app/                        # FastAPI backend service
+│   ├── main.py                 # API endpoints
+│   ├── utils.py                # Helper utilities
+│   └── requirements.txt        # Backend dependencies
+├── frontend/                   # Streamlit UI (optional)
 │   └── app.py
-│
-├── model/                     # ML model training workflow
+├── model/                      # ML model training workflow
 │   └── train_model.py
-│
-├── data/                      # Training dataset
+├── data/                       # Training dataset
 │   └── house_price.csv
-│
-├── Dockerfile                 # Docker build config for backend
-├── docker-compose.yml         # Multi-container setup (UI + API)
-│
+├── Dockerfile                  # Docker build config
+├── docker-compose.yml          # Multi-container setup
 ├── .github/
 │   └── workflows/
-│       └── ci-cd.yml          # CI/CD automation pipeline
-│
-└── README.md                  # Project documentation
+│       └── ci-cd.yml           # CI/CD automation pipeline
+└── README.md                   # Project documentation
+
 
 🧠 Model Training
+To retrain the model and update the model.pkl file, execute:
 
-Run the model training script:
+Bash
 
 python model/train_model.py
+⚡ Local Execution
+<ol> <li><b>Install Dependencies:</b> <pre><code>pip install -r app/requirements.txt</code></pre> </li> <li><b>Start FastAPI Server:</b> <pre><code>uvicorn app.main:app --reload</code></pre> </li> <li><b>Explore Swagger UI:</b> <br />👉 <a href="http://localhost:8000/docs">http://localhost:8000/docs</a> </li> </ol>
 
+🐳 Docker Workflow
+Build and run the container locally:
 
-This generates model.pkl, which is automatically loaded by FastAPI during runtime.
+Bash
 
-⚡ Run API Locally
-Install dependencies
-pip install -r app/requirements.txt
-
-Start FastAPI server
-uvicorn app.main:app --reload
-
-
-Swagger UI will be available at:
-
-👉 http://localhost:8000/docs
-
-🐳 Docker Setup
-Build Docker Image
+# Build
 docker build -t dipak45/house-price-api .
 
-Run Docker Container
+# Run
 docker run -p 8000:8000 dipak45/house-price-api
-
-
-Access the API at:
-
-👉 http://localhost:8000
-
 🌐 API Usage
-Prediction Request
-POST http://localhost:8000/predict?bedrooms=3&bathrooms=2&area=1200
+<b>Request:</b> POST http://localhost:8000/predict?bedrooms=3&bathrooms=2&area=1200
 
-Example Response
+<b>Response:</b>
+
+JSON
+
 {
   "predicted_price": 245000.0
 }
+🔁 CI/CD Pipeline
+The GitHub Actions workflow automates the following steps on every push to the main branch:
 
-🔁 CI/CD Pipeline (GitHub Actions)
-
-The CI/CD workflow performs:
-
-✔️ Checkout repository
-✔️ Build Docker image
-✔️ Authenticate to DockerHub
-✔️ Push image to registry
-
-
-Pipeline file:
-
-.github/workflows/ci-cd.yml
-
-🐳 DockerHub Image
-
-Pull the latest image:
-
-docker pull dipak45/house-price-api
-
-
-🔗 https://hub.docker.com/r/dipak45/house-price-api
-
-📦 GitHub Repository
-
-🔗 https://github.com/dipakshimpi/house-price-mlops
+<ul> <li>✔️ Checkout Repository</li> <li>✔️ Build Docker Image</li> <li>✔️ Authenticate to DockerHub</li> <li>✔️ Push Image to Registry</li> </ul>
 
 🚧 Future Enhancements
+[ ] 🌍 Cloud Deployment: Migrate to AWS (EC2/ECS) or GCP.
 
-🌍 Deploy to cloud platforms (AWS / GCP / Render)
+[ ] 📊 Monitoring: Integrate Prometheus and Grafana for model drift.
 
-📊 Add monitoring and logging stack
+[ ] 🧪 Testing: Add PyTest for unit and integration testing.
 
-🧪 Integrate unit and API tests
-
-🔁 Automated retraining pipeline
+[ ] 🔁 Retraining: Implement automated retraining triggers.
 
 👤 Author
+<p> <b>Dipak Shimpi</b><br /> <i>MLOps & Machine Learning Enthusiast</i> </p>
 
-Dipak Shimpi
-MLOps & Machine Learning Enthusiast
+<p> <a href="https://github.com/dipakshimpi/house-price-mlops"> <img src="https://www.google.com/search?q=https://img.shields.io/badge/GitHub-100000%3Fstyle%3Dfor-the-badge%26logo%3Dgithub%26logoColor%3Dwhite" alt="GitHub"> </a> <a href="https://hub.docker.com/r/dipak45/house-price-api"> <img src="https://www.google.com/search?q=https://img.shields.io/badge/DockerHub-2496ED%3Fstyle%3Dfor-the-badge%26logo%3Ddocker%26logoColor%3Dwhite" alt="DockerHub"> </a> </p>
 
-⭐ Contributing
-
-Contributions are welcome!
-Fork the repo, explore improvements, and submit a pull request 🚀
+<div align="center"> <sub>⭐ If you find this project useful, please consider giving it a star!</sub> </div>
